@@ -57,7 +57,7 @@ public class Accueil extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/logoBank.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logoBank.png"))); // NOI18N
 
         jLabel2.setText("jLabel2");
 
@@ -82,7 +82,7 @@ public class Accueil extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(jLabel2)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2);
@@ -90,7 +90,8 @@ public class Accueil extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(87, 155, 170));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/user (2).png")); // NOI18N
+        jButton1.setBackground(new java.awt.Color(87, 155, 170));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user (2).png"))); // NOI18N
         jButton1.setText("jButton1");
         jButton1.setBorder(null);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,7 +100,8 @@ public class Accueil extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/icons8-documents-de-produit-80.png")); // NOI18N
+        jButton2.setBackground(new java.awt.Color(87, 155, 170));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-documents-de-produit-80.png"))); // NOI18N
         jButton2.setText("jButton1");
         jButton2.setBorder(null);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,7 +115,8 @@ public class Accueil extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/user.png")); // NOI18N
+        jButton3.setBackground(new java.awt.Color(87, 155, 170));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
         jButton3.setText("jButton1");
         jButton3.setBorder(null);
 
@@ -272,7 +275,6 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

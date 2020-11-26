@@ -67,6 +67,7 @@ public class OnlineProspect extends javax.swing.JFrame {
         jLabel7.setText("Email");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 340, -1));
 
+        jTextField1.setBackground(new java.awt.Color(56, 56, 56));
         jTextField1.setFont(new java.awt.Font("Market Deco", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(null);
@@ -78,8 +79,6 @@ public class OnlineProspect extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 300, 40));
-
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 300, -1));
 
         jLabel8.setFont(new java.awt.Font("Market Deco", 0, 21)); // NOI18N
@@ -87,6 +86,7 @@ public class OnlineProspect extends javax.swing.JFrame {
         jLabel8.setText("Mot de passe");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 340, -1));
 
+        jPasswordField1.setBackground(new java.awt.Color(56, 56, 56));
         jPasswordField1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setBorder(null);
@@ -97,11 +97,10 @@ public class OnlineProspect extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 300, 40));
-
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 300, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/Group 2.png")); // NOI18N
+        jButton1.setBackground(new java.awt.Color(56, 56, 56));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Group 2.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,7 +119,7 @@ public class OnlineProspect extends javax.swing.JFrame {
         jLabel9.setText("Vous n'avez pas de compte ?");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, -1, 120));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setBackground(new java.awt.Color(56, 56, 56));
         jButton2.setForeground(new java.awt.Color(87, 155, 170));
         jButton2.setText("Créez un compte");
         jButton2.setToolTipText("");
@@ -150,11 +149,11 @@ public class OnlineProspect extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 456, -1, 20));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/Rectangle noir.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Rectangle noir.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, -20, 480, 520));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/Group 3.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Group 3.png"))); // NOI18N
         jLabel2.setText("All rights reserved © ONLINE BANK");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 480));
 
