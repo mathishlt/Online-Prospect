@@ -11,12 +11,12 @@ import java.awt.*;
  *
  * @author mathishoulet
  */
-public class Accueil extends javax.swing.JFrame {
+public class Produits extends javax.swing.JFrame {
 
     /**
      * Creates new form Accueil
      */
-    public Accueil() {
+    public Produits() {
         initComponents();
         modifComponents();
         
@@ -96,6 +96,11 @@ public class Accueil extends javax.swing.JFrame {
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -186,11 +191,14 @@ public class Accueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        Produits i = new Produits();
-        this.setVisible(false);                    
+        
     }//GEN-LAST:event_jButton2MouseClicked
 
-    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Accueil i = new Accueil();
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public void modifComponents() {
         jLabel2.setText("Bienvenue [prenom de l'utilisateur]");
         jLabel2.setFont(new Font("MARKET DECO", Font.PLAIN, 30));
@@ -213,48 +221,15 @@ public class Accueil extends javax.swing.JFrame {
         jButton3.setOpaque(false);
         jButton3.setBorder(null);
         jButton3.setForeground(Color.white);
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié","12000€"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé","20000€"}
+                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"}
             },
             new String [] {
-                "ID","Nom", "Prénom", "Âge", "Situation profesionnelle","Situation personnelle","Revenus annuels"
+                "Produits","Conditions"
             }
                 
                 ));
-        
-        
         jLabel4.setText("Clients");
         jLabel4.setFont(new Font("MARKET DECO", Font.PLAIN, 50));
         jLabel4.setForeground(new Color(87,155,170));
@@ -273,7 +248,6 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
