@@ -12,4 +12,5 @@ public interface EmployeeDAO {
 	public abstract void updateEmployeeEmailById(String newEmail,Integer employeeId);
 	public abstract void deleteEmployeeById(Integer employeeId);
 	public abstract List<Employee> getAllEmployeesInfo();
+        public abstract boolean authUser(String email, String password);
 }

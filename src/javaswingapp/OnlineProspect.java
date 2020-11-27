@@ -5,11 +5,19 @@
  */
 package javaswingapp;
 
+import com.infotech.dao.EmployeeDAO;
+import com.infotech.dao.impl.EmployeeDAOImpl;
+import com.infotech.model.Employee;
+import com.infotech.util.DBUtil;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author mathishoulet
  */
 public class OnlineProspect extends javax.swing.JFrame {
+    
     /**
      * Creates new form NewSignForm
      */
@@ -171,7 +179,15 @@ public class OnlineProspect extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+        Employee e = new Employee();
+        if (employeeDAO.authUser(jTextField1.getText(), jPasswordField1.getPassword().toString())) {
+            Accueil pageAccueil = new Accueil();
+            System.out.println("C'est bon");
+        } else {
+            System.out.println("C'est pas bon");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
