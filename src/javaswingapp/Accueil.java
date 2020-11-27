@@ -5,6 +5,7 @@
  */
 package javaswingapp;
 
+import crudmysql.gui.addClientFrame;
 import crudmysql.Client.Dao.DaoClient;
 import crudmysql.Client.Dao.DaoOffreClient;
 import crudmysql.Client.gui.model.TableClientModel;
