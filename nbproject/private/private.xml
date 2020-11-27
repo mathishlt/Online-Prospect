@@ -3,9 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/javaswingapp/NewInscrForm.java</file>
-            <file>file:/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/javaswingapp/OnlineProspect.java</file>
-            <file>file:/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/javaswingapp/Accueil.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/dao/impl/ClientDaoJdbc.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/OnlineProspect.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/gui/model/ProduitClientModel.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/Dao/OffreDao.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/Produits.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/gui/model/TableClientModel.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/gui/addClientFrame.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/dao/impl/DepenseDaoJdbc.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/Dao/DaoOffreClient.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/dao/impl/OffreDaoJdbc.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/com/infotech/dao/EmployeeDAO.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/Dao/ClientDao.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/NewInscrForm.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/Accueil.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/com/infotech/client/ClientTest.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/gui/model/DepenseClientModel.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/Dao/DaoDepenseClient.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/Dao/DepenseDao.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/com/infotech/dao/impl/EmployeeDAOImpl.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/DepenseFrame.java</file>
         </group>
     </open-files>
 </project-private>

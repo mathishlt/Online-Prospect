@@ -4,8 +4,21 @@
  * and open the template in the editor.
  */
 package javaswingapp;
+
+import crudmysql.gui.addClientFrame;
+import crudmysql.Client.Dao.DaoClient;
+import crudmysql.Client.Dao.DaoOffreClient;
+import crudmysql.Client.gui.model.TableClientModel;
+import crudmysql.beans.Client;
+import crudmysql.beans.Depense;
+import crudmysql.beans.Offre;
+import crudmysql.gui.infoClientFrame;
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,17 +26,37 @@ import java.awt.*;
  */
 public class Accueil extends javax.swing.JFrame {
 
+    private ArrayList<Client> clients;
+    private DefaultListModel model = new DefaultListModel();
+    private TableClientModel model_table;
+    private JTable table;
+    private JButton cardClientBtn;
+    private String[] valueTable=new String[6];
+    private String id;
+    private String revenu;
+    private String nom;
+    private String prenom;
+    private String age;
+    private String perso;
+    public String idfamille;
+    private String pro;
+    private Client newClient;
+    private Offre newOffre;
+    private Depense newDepense;
+
     /**
      * Creates new form Accueil
      */
-    public Accueil() {
-        initComponents();
-        modifComponents();
-        
+    public Accueil(ArrayList<Client> clients) {
+        super();
         setTitle("Online Prospect - BETA");
-        this.setSize(500,300);
+        this.setSize(1920, 1080);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setVisible(true);
+        this.clients = clients;
+        initComponents();
+        modifComponents();
+
     }
 
     /**
@@ -44,9 +77,12 @@ public class Accueil extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,8 +92,6 @@ public class Accueil extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/logoBank.png")); // NOI18N
 
         jLabel2.setText("jLabel2");
 
@@ -90,7 +124,6 @@ public class Accueil extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(87, 155, 170));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/user (2).png")); // NOI18N
         jButton1.setText("jButton1");
         jButton1.setBorder(null);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,8 +131,12 @@ public class Accueil extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/icons8-documents-de-produit-80.png")); // NOI18N
         jButton2.setText("jButton1");
         jButton2.setBorder(null);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,12 +150,18 @@ public class Accueil extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/user.png")); // NOI18N
         jButton3.setText("jButton1");
         jButton3.setBorder(null);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("jLabel3");
+
+        jButton6.setText("Depense client");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -131,6 +174,7 @@ public class Accueil extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 1, Short.MAX_VALUE))
+            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,9 +185,11 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(147, 147, 147)
+                .addGap(66, 66, 66)
+                .addComponent(jButton6)
+                .addGap(58, 58, 58)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addContainerGap(416, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3);
@@ -158,6 +204,24 @@ public class Accueil extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(240, 140, 1020, 80);
+
+        jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4);
+        jButton4.setBounds(310, 230, 73, 23);
+
+        jButton5.setText("jButton5");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5);
+        jButton5.setBounds(980, 230, 73, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,11 +250,82 @@ public class Accueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        
+            Produits pframe=new Produits();
+            pframe.setVisible(true);
+            Accueil ddd=new Accueil(clients);
+            ddd.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        int rowIndex = jTable1.getSelectedRow();
+        for (int k = 0; k <= 7; k++) {
+            Object item = jTable1.getModel().getValueAt(rowIndex, k);
+       
+            if(k==0){
+                id= item.toString();
+            }else if(k==1){
+                nom= item.toString();
+            }else if(k==2){
+                prenom= item.toString();
+            }else if(k==3){
+                age= item.toString();
+            }else if(k==4){
+                pro= item.toString();
+            }else if(k==5){
+                perso= item.toString();
+            }else if(k==6){
+                revenu= item.toString();
+            }else if(k==7){
+                idfamille=item.toString();
+            }
+
+        }
+
+        if(rowIndex>0){
+         try {
+            Offre offres = DaoOffreClient.getOffreClientDao().getSouscription(idfamille);
+            infoClientFrame dd = new infoClientFrame(id,nom,prenom,age,perso,pro,revenu,idfamille,offres);
+            dd.setVisible(true);
+            
+            System.out.println("souscription"+offres);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Accueil.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        }
+        
+
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+            addClientFrame ddg = new addClientFrame(getThis());
+          ddg.setVisible(true);
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        DepenseFrame gg=new DepenseFrame();
+        gg.setVisible(true);
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
     
+    public Accueil getThis(){
+        return this;
+    }
     public void modifComponents() {
+
         jLabel2.setText("Bienvenue [prenom de l'utilisateur]");
         jLabel2.setFont(new Font("MARKET DECO", Font.PLAIN, 30));
         jLabel2.setForeground(Color.white);
@@ -212,59 +347,61 @@ public class Accueil extends javax.swing.JFrame {
         jButton3.setOpaque(false);
         jButton3.setBorder(null);
         jButton3.setForeground(Color.white);
+        jButton4.setText("Détails");
+        jButton5.setText("Ajouter un client");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé"},
-                {"1","Gomas", "Pierre", "45 ans", "Cadre", "Marié","12000€"},
-                {"2","Jean", "Noyer", "60 ans", "Retraité", "Divorcé","20000€"}
-            },
-            new String [] {
-                "ID","Nom", "Prénom", "Âge", "Situation profesionnelle","Situation personnelle","Revenus annuels"
-            }
-                
-                ));
-        
-        
+        model_table = new TableClientModel();
+
+        jTable1.setModel(model_table);
+        jTable1.setBackground(Color.white);
+
         jLabel4.setText("Clients");
         jLabel4.setFont(new Font("MARKET DECO", Font.PLAIN, 50));
-        jLabel4.setForeground(new Color(87,155,170));
+        jLabel4.setForeground(new Color(87, 155, 170));
+
+    }
+      public Client getNewClient() {
+        return newClient;
+    }
+
+    public void setNewClient(Client newClient) {
+        System.out.println("Client passé en paramètre "+newClient);
+        this.newClient = newClient;
+    }
+        
+    public Offre getNewOffreClient() {
+        return newOffre;
+    }
+
+    public void setNewOffreClient(Offre newOffre) {
+        System.out.println("Offre passé en paramètre "+newOffre);
+        this.newOffre = newOffre;
+    }
+    
+    public Depense getNewDepenseClient() {
+        return newDepense;
+    }
+
+    public void setNewDepenseClient(Depense newDepense) {
+        System.out.println("Depense passé en paramètre "+newDepense);
+        this.newDepense = newDepense;
+    }
+       public void refresh(){
+        try {
+            clients = DaoClient.getClientDao().getAll();
+            model.addElement(clients.get(clients.size()-1));
+        } catch (SQLException ex) {
+            Logger.getLogger(Accueil.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-    
-    
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -272,7 +409,6 @@ public class Accueil extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

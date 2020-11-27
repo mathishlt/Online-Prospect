@@ -5,17 +5,37 @@
  */
 package javaswingapp;
 
+import com.infotech.dao.EmployeeDAO;
+import com.infotech.dao.impl.EmployeeDAOImpl;
+import com.infotech.model.Employee;
+import crudmysql.Client.Dao.DaoClient;
+import crudmysql.beans.Client;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author mathishoulet
  */
 public class OnlineProspect extends javax.swing.JFrame {
+
     /**
      * Creates new form NewSignForm
      */
+    private String passText;
+    private Boolean page;
+    private String nom;
+    private ArrayList<Client> clients;
+   
+
     public OnlineProspect() {
+        super();
+        this.clients = clients;
         initComponents();
         setTitle("Online Prospect - BETA");
+        init();
     }
 
     /**
@@ -29,6 +49,7 @@ public class OnlineProspect extends javax.swing.JFrame {
 
         jFrame1 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -50,6 +71,9 @@ public class OnlineProspect extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel10.setForeground(new java.awt.Color(255, 51, 51));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 344, 300, 20));
+
         jLabel5.setFont(new java.awt.Font("Market Deco", 0, 28)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,19 +91,18 @@ public class OnlineProspect extends javax.swing.JFrame {
         jLabel7.setText("Email");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 340, -1));
 
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Market Deco", 0, 18)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(null);
         jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 300, 40));
-
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 300, -1));
 
         jLabel8.setFont(new java.awt.Font("Market Deco", 0, 21)); // NOI18N
@@ -87,6 +110,7 @@ public class OnlineProspect extends javax.swing.JFrame {
         jLabel8.setText("Mot de passe");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 340, -1));
 
+        jPasswordField1.setBackground(new java.awt.Color(56, 56, 56));
         jPasswordField1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setBorder(null);
@@ -97,13 +121,13 @@ public class OnlineProspect extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 300, 40));
-
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, 300, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/Group 2.png")); // NOI18N
+        jButton1.setBackground(new java.awt.Color(56, 56, 56));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Group 2.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setOpaque(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -125,6 +149,7 @@ public class OnlineProspect extends javax.swing.JFrame {
         jButton2.setText("Créez un compte");
         jButton2.setToolTipText("");
         jButton2.setBorder(null);
+        jButton2.setOpaque(false);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -150,11 +175,11 @@ public class OnlineProspect extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 456, -1, 20));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/Rectangle noir.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Rectangle noir.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, -20, 480, 520));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/Group 3.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Group 3.png"))); // NOI18N
         jLabel2.setText("All rights reserved © ONLINE BANK");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 480));
 
@@ -172,11 +197,27 @@ public class OnlineProspect extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+   
+        EmployeeDAO employeeDAO = new EmployeeDAOImpl();
+        Employee e = new Employee();
+        passText = new String(jPasswordField1.getPassword());
+        page=employeeDAO.authUser(jTextField1.getText(),passText);             
+
+        if (page==true) {
+            
+            Accueil pageAccueil = new Accueil(clients);
+            pageAccueil.setVisible(true);
+            
+        } else {
+            jLabel10.setText("E-mail ou Mot de passe incorrect ");
+        }
+                    
+       
+        
+            }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        NewInscrForm g=new NewInscrForm();
+        NewInscrForm g = new NewInscrForm();
         g.init();
         g.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
@@ -186,26 +227,36 @@ public class OnlineProspect extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Accueil i= new Accueil();
-        i.modifComponents();
-        i.setVisible(true);
+        //</editor-fold>
+        
+        try {
+
+            ArrayList<Client> clients = DaoClient.getClientDao().getAll();
+            OnlineProspect mf = new OnlineProspect();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(OnlineProspect.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
-        public void init() {
-    jPasswordField1.setOpaque(false);
-    jTextField1.setOpaque(false);
-    jButton1.setOpaque(false);
-    jButton2.setOpaque(false);
-}
-    
+    public void init() {
+        jPasswordField1.setOpaque(false);
+        jTextField1.setOpaque(false);
+        jButton1.setOpaque(false);
+        jButton2.setOpaque(false);
+
+
+    }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 OnlineProspect form = new OnlineProspect();
                 form.jTextField1.setOpaque(false);
@@ -216,12 +267,15 @@ public class OnlineProspect extends javax.swing.JFrame {
             }
         });
     }
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
