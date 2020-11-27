@@ -5,7 +5,8 @@
  */
 package javaswingapp;
 
-import javax.swing.JFrame;
+import crudmysql.beans.Client;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +16,8 @@ public class NewInscrForm extends javax.swing.JFrame {
     /**
      * Creates new form OnlineProspect
      */
+    private ArrayList<Client> clients;
+
     public NewInscrForm() {
         initComponents();
         setTitle("Online Prospect - BETA");
@@ -65,8 +68,6 @@ public class NewInscrForm extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Confirmer Mot de passe");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 350, -1));
-
-        jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 290, -1));
 
         jPasswordField2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -79,23 +80,19 @@ public class NewInscrForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 290, 20));
-
-        jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 290, -1));
 
         nom1.setFont(new java.awt.Font("Market Deco", 0, 18)); // NOI18N
         nom1.setForeground(new java.awt.Color(255, 255, 255));
         nom1.setBorder(null);
         nom1.setCaretColor(new java.awt.Color(255, 255, 255));
-        nom1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        nom1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nom1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nom1ActionPerformed(evt);
             }
         });
         jPanel1.add(nom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, 290, 20));
-
-        jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 290, -1));
 
         jLabel13.setFont(new java.awt.Font("Market Deco", 0, 21)); // NOI18N
@@ -107,7 +104,7 @@ public class NewInscrForm extends javax.swing.JFrame {
         prenom.setForeground(new java.awt.Color(255, 255, 255));
         prenom.setBorder(null);
         prenom.setCaretColor(new java.awt.Color(255, 255, 255));
-        prenom.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        prenom.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         prenom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prenomActionPerformed(evt);
@@ -120,8 +117,6 @@ public class NewInscrForm extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Email");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 80, -1));
-
-        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 120, -1));
 
         jLabel10.setFont(new java.awt.Font("Market Deco", 0, 21)); // NOI18N
@@ -133,7 +128,7 @@ public class NewInscrForm extends javax.swing.JFrame {
         nom.setForeground(new java.awt.Color(255, 255, 255));
         nom.setBorder(null);
         nom.setCaretColor(new java.awt.Color(255, 255, 255));
-        nom.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        nom.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         nom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomActionPerformed(evt);
@@ -155,8 +150,6 @@ public class NewInscrForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 310, 20));
-
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 120, -1));
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
@@ -176,7 +169,7 @@ public class NewInscrForm extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, -1, 100));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/Group 5.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Group 2.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,11 +214,11 @@ public class NewInscrForm extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/Rectangle noir.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Rectangle noir.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 440, 480));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/image/Group 3.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Group 3.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -277,7 +270,7 @@ public class NewInscrForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField2ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Accueil i= new Accueil();
+       // Accueil i= new Accueil(getThis(),clients);
     }//GEN-LAST:event_jButton1MouseClicked
 
     public void init() {

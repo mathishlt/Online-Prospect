@@ -3,9 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/javaswingapp/NewInscrForm.java</file>
-            <file>file:/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/javaswingapp/OnlineProspect.java</file>
-            <file>file:/Users/mathishoulet/NetBeansProjects/JavaSwingApp/src/javaswingapp/Accueil.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/addClientFrame.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/dao/impl/JdbcDao.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/dao/impl/ClientDaoJdbc.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/OnlineProspect.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/Dao/OffreDao.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/gui/model/TableClientModel.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/dao/impl/DepenseDaoJdbc.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/Dao/DaoClient.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/infoClientFrame.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/Client/Dao/DaoOffreClient.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/dao/impl/OffreDaoJdbc.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/crudmysql/beans/Offre.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/NewInscrForm.java</file>
+            <file>file:/C:/Users/julie/OneDrive/Documents/NetBeansProjects/JavaSwingApp/src/javaswingapp/Accueil.java</file>
         </group>
     </open-files>
 </project-private>
